@@ -12,6 +12,7 @@ from flask import Flask, render_template, request
 img = Image.open("assets/smiley.png")
 #printer = Network("127.0.0.1")
 printer = Usb(0x04b8, 0x0202, 0, profile="TM-T88V")
+#printer = Dummy
 
 #vikunja api vars
 token = "redacted"

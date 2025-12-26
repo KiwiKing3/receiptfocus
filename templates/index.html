@@ -1,33 +1,38 @@
-<h1>ReceiptFocus</h1>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+    </head>
+    <body>
+        <h1>ReceiptFocus</h1>
+        <form method="post">
+            <label for="task">Aufgabe:</label>
+            <input type="text" name="task" required>
 
-<form method="post">
-    <label for="task">Aufgabe:</label>
-    <input type="text" name="task" required><br>
+            <label for="date">Bis:</label>
+            <input type="date" name="date">
+            <label for="next_date">Nächstes Datum</label>
+            <input type="checkbox" name="next_date">
 
-    <label for="date">Bis:</label>
-    <input type="date" name="date">
-    <b>oder</b>
-    <label for="next_date">Nächstes Datum</label>
-    <input type="checkbox" name="next_date"><br>
+            <label for="subject">Fach:</label>
+            <select name="subject" required>
+                <option value="Mathe">Mathe</option>
+                <option value="Deutsch">Deutsch</option>
+                <option value="Englisch">Englisch</option>
+                <option value="Französisch">Französisch</option>
+                <option value="Kunst">Kunst</option>
+                <option value="Politik">Politik</option>
+                <option value="Chemie">Chemie</option>
+                <option value="Religion">Religion</option>
+                <option value="Physik">Physik</option>
+                <option value="Erdkunde">Erdkunde</option>
+                <option value="Geschichte">Geschichte</option>
+            </select>
 
-    <label for="subject">Fach:</label>
-    <select name="subject" required>
-        <option value=""></option>
-        <option value="Mathe">Mathe</option>
-        <option value="Deutsch">Deutsch</option>
-        <option value="Englisch">Englisch</option>
-        <option value="Französisch">Französisch</option>
-        <option value="Kunst">Kunst</option>
-        <option value="Politik">Politik</option>
-        <option value="Chemie">Chemie</option>
-        <option value="Religion">Religion</option>
-        <option value="Physik">Physik</option>
-        <option value="Erdkunde">Erdkunde</option>
-        <option value="Geschichte">Geschichte</option>
-    </select><br>
+            <label for="info">Mehr Infos:</label>
+            <input type="text" name="info">
 
-    <label for="info">Mehr Infos:</label>
-    <input type="text" name="info"><br>
-
-    <button type="submit">Bestätigen</button>
-</form>
+            <button type="submit">Bestätigen</button>
+        </form>
+    </body>
+</html>
