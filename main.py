@@ -12,17 +12,17 @@ from flask import Flask, render_template, request
 img = Image.open("assets/smiley.png")
 #printer = Network("127.0.0.1")
 printer = Usb(0x04b8, 0x0202, 0, profile="TM-T88V")
-#printer.line_spacing(40)
 
 #vikunja api vars
-token = "tk_2beec8a30c9030268d1e65a8954f919a475f9416"
+token = "redacted"
 vikunja_headers = {
     "Authorization": f"Bearer {token}",
     "Content-Type": "application/json"
 }
 vikunja_project_id = "2"
-vikunja_task_url = f"http://192.168.178.122:3456/api/v1/projects/{vikunja_project_id}/tasks"
-vikunja_label_id_url = f"http://192.168.178.122:3456/api/v1/labels"
+vikunja_instance = "redacted"
+vikunja_task_url = f"{vikunja_instance}/api/v1/projects/{vikunja_project_id}/tasks"
+vikunja_label_id_url = f"{vikunja_instance}/api/v1/labels"
 
 #time vars:
 today = datetime.date.today()
@@ -104,7 +104,7 @@ def home():
 
     #get task ID from task request response
     vikunja_task_id = vikunja_task_response.json()['id']
-    vikunja_task_label_url = f"http://192.168.178.122:3456/api/v1/tasks/{vikunja_task_id}/labels"
+    vikunja_task_label_url = f"{vikunja_instance}/api/v1/tasks/{vikunja_task_id}/labels"
 
     #add label to task
     vikunja_label_data = {
