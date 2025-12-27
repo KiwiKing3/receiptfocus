@@ -25,7 +25,7 @@ label {
   margin-bottom: 10px;
 }
 
-input[type=text], input[type=date], select {
+input[type=text], input[type=date], select, input[type=checkbox] {
   min-width: 45%;
   margin-bottom: 10px;
   border: 1px solid #ccc;
@@ -50,19 +50,13 @@ input[type=submit] {
   align-self: right;
 }
 
-input[type=checkbox] {
-    min-width: 45%;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 10px;
-}
-
 @media screen and (max-width: 600px) {
   label,
   input[type=text],
   input[type=submit],
-  select, textarea {
+  input[type=checkbox],
+  input[type=date],
+  select {
     flex: 100%;
     min-width: 100%;
   }
