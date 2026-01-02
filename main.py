@@ -6,22 +6,24 @@ import requests
 import datetime
 import locale
 from flask import Flask, render_template, request
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 
 #printer vars
-img = Image.open("assets/smiley.png")
 #printer = Network("127.0.0.1")
 printer = Usb(0x04b8, 0x0202, 0, profile="TM-T88V")
-#printer = Dummy
+#printer = Dummy(profile="TM-T88V")
 
 #vikunja api vars
-token = "redacted"
+token = os.getenv('vikunja_api_token')
 vikunja_headers = {
     "Authorization": f"Bearer {token}",
     "Content-Type": "application/json"
 }
-vikunja_project_id = "2"
-vikunja_instance = "redacted"
+vikunja_project_id = os.getenv('vikunja_project_id')
+vikunja_instance = os.getenv('vikunja_instance')
 vikunja_task_url = f"{vikunja_instance}/api/v1/projects/{vikunja_project_id}/tasks"
 vikunja_label_id_url = f"{vikunja_instance}/api/v1/labels"
 
