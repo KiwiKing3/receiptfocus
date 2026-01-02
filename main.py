@@ -1,7 +1,6 @@
 from escpos.printer import *
 from escpos.image import *
 import escpos
-from PIL import Image
 import requests
 import datetime
 import locale
