@@ -144,11 +144,6 @@ def home():
     printer.ln()
     printer.ln()
 
-    with Image.open("assets/smiley.png") as im:
-        (width, height) = (im.width // 8, im.height // 8)
-        im_resized = im.resize((width, height))
-
- #   printer.image(im_resized, impl="bitImageColumn")
     code128_prefix = "{B"
     printer.barcode(f"{code128_prefix}{vikunja_task_id}", "CODE128", pos="OFF")
     printer.cut()
