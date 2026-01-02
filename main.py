@@ -116,12 +116,14 @@ def home():
     }
     requests.put(vikunja_task_label_url, json=vikunja_label_data, headers=vikunja_headers)
 
-    printer.set(custom_size=True, width=2, height=2)
+
+    #start printing
+    printer.set(custom_size=True, width=2, height=2, align="left")
     printer.text(f"{subject}")
     printer.ln()
     printer.ln()
 
-    printer.set(custom_size=False, bold=True)
+    printer.set(normal_textsize=True, bold=True)
     printer.text("Aufgabe: ")
     printer.set(bold=False)
     printer.text(task_title)
