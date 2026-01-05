@@ -4,7 +4,7 @@ import escpos
 import requests
 import datetime
 import locale
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_file
 from dotenv import load_dotenv
 import os
 
@@ -151,7 +151,10 @@ def home():
 
     return render_template('index.html')
 
-
+# serve manifest for PWA
+@app.route('/manifest.json')
+def serve_manifest():
+    return send_file('manifest.json', mimetype='application/manifest+json')
 
 
 if __name__ == '__main__':
