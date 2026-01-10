@@ -33,23 +33,30 @@ calendar_week = today.isocalendar()[1]
 due_date_time = "07:00:00" #school start
 
 #timetable
-if calendar_week % 2 == 0:
-    timetable = [
+week_A = [
         ["Deutsch", "Mathe", "Chemie"],
         ["Erdkunde", "Geschichte", "Englisch"],
         ["Französisch", "Religion", "Kunst"],
         ["Sport", "Englisch", "Politik"],
-        ["Biologie", "Mathe", "Physik"]
-    ]
-else:
-    timetable = [
+        ["Biologie", "Mathe", "Physik"],
+        [],
+        []
+]
+week_B = [
         ["Deutsch", "Mathe", "Chemie"],
         ["Erdkunde", "Geschichte", "Französisch"],
         ["Französisch", "Religion", "Kunst"],
         ["Sport", "Englisch", "Politik", "Deutsch"],
-        ["Biologie", "Mathe", "Physik"]
-    ]
+        ["Biologie", "Mathe", "Physik"],
+        [],
+        []
+]
 
+
+if calendar_week % 2 == 0:
+    timetable = week_A + week_B
+else:
+    timetable = week_B + week_A
 
 #misc vars
 #locale
@@ -69,10 +76,10 @@ def home():
     subject = request.form.get('subject')
     next_lesson = request.form.get('next_date')
     if next_lesson == "on":
-        for i in range(1, 8):
-            day_index = (today_weekday + i) % 7
+        for i in range(1, 15):
+            day_index = (today_weekday + i) % 14
 
-            if day_index > 4: #skip weekends
+            if day_index % 7 > 4:
                 continue
 
             timetable_on_target_day = timetable[day_index]
@@ -83,6 +90,7 @@ def home():
                 break
     else: 
         due_date_str = request.form.get('date')
+
     task_title = request.form.get('task')
     task_info = request.form.get('info')
     #add time for Vikunja
