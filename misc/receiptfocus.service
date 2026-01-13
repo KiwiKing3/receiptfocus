@@ -1,0 +1,10 @@
+[Unit]
+Description=ReceiptFocus
+
+[Service]
+Type=simple
+ExecStart=source /home/%u/receiptfocus/.venv/bin/activate && /usr/bin/python3 /home/%u/receiptfocus/main.py
+Restart=always
+
+[Install]
+WantedBy=default.target
