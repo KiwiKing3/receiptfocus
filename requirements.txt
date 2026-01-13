@@ -2,3 +2,4 @@ python-escpos
 requests
 flask
 python-dotenv
+evdev
