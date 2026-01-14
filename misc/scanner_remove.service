@@ -3,7 +3,7 @@ Description=ReceiptFocus task remover
 
 [Service]
 Type=simple
-ExecStart=source /home/%u/receiptfocus/.venv/bin/activate && /usr/bin/python3 /home/%u/receiptfocus/remove.py
+ExecStart=/home/%u/receiptfocus/.venv/bin/python3 /home/%u/receiptfocus/remove.py
 Restart=always
 
 [Install]
